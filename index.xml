@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pwn4fun</title>
-    <link>https://example.com/</link>
+    <link>https://h4dla3.github.io/</link>
     <description>Recent content on pwn4fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 08 Jul 2020 11:47:06 -0400</lastBuildDate>
     
-	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://h4dla3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>https://example.com/about/</link>
+      <link>https://h4dla3.github.io/about/</link>
       <pubDate>Wed, 08 Jul 2020 11:47:06 -0400</pubDate>
       
-      <guid>https://example.com/about/</guid>
+      <guid>https://h4dla3.github.io/about/</guid>
       <description>my name is mohamed 25 ans from algeria
 intersted in web security and browser exploitation ( right now )
 like alwayse thanks to : Mouad ~ kapablo ~ meki ~ mahamadi ~ jalil ~ zakaria</description>
@@ -24,10 +24,10 @@ like alwayse thanks to : Mouad ~ kapablo ~ meki ~ mahamadi ~ jalil ~ zakaria</de
     
     <item>
       <title>Eagle Jump</title>
-      <link>https://example.com/post/eagle-jump/</link>
+      <link>https://h4dla3.github.io/post/eagle-jump/</link>
       <pubDate>Sun, 07 Jun 2020 06:23:48 -0400</pubDate>
       
-      <guid>https://example.com/post/eagle-jump/</guid>
+      <guid>https://h4dla3.github.io/post/eagle-jump/</guid>
       <description>ولا لم اكتب با للغة العربية اكثر من 7 سنوات سوف تجدون الكثير من الاخطاء ملاحظة هذا حل للتحدي وليس شرح لكن سوف اقوم بوضع روابط اطلعو عليها كما انني قمت بحل التحدي منذ مدة طويلة المهم معنا حل تحدي eaglejump فلنرى التحدي
 التحدي يقول
 صنعت السيدة نيني المدونة الخاصة بشركتها ، إيجل-جامب.</description>
