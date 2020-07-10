@@ -12,6 +12,25 @@
     
     
     <item>
+      <title>lfi</title>
+      <link>https://h4dla3.github.io/post/ctf_tips/</link>
+      <pubDate>Fri, 10 Jul 2020 10:57:03 -0400</pubDate>
+      
+      <guid>https://h4dla3.github.io/post/ctf_tips/</guid>
+      <description>بسم الله الرحمن الرحيم
+السلام عليكم ورحمة الله تعالى و بركاته
+https://www.php.net/manual/en/function.include.php
+https://www.php.net/manual/en/function.phpinfo
+في البداية
+Understanding PHP temporary files
+في البداية
+https://www.php.net/manual/en/features.file-upload.post-method.php
+https://www.php.net/manual/en/features.file-upload.put-method.php
+https://www.macs.hw.ac.uk/~hwloidl/docs/PHP/features.file-upload.html
+يمكننا استعمال بوست او put ميثود لرفع الملفات في بي اش بي , بعد رفع الملف , الملف سوف يحفظ في global variables يدعى $_files الاراي تحتوي على بعض المعلومات كالتالي</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://h4dla3.github.io/about/</link>
       <pubDate>Wed, 08 Jul 2020 11:47:06 -0400</pubDate>
