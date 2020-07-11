@@ -3,39 +3,60 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://h4dla3.github.io/post/ctf_tips/</loc>
+    <loc>https://example.com/tags/ctf/</loc>
     <lastmod>2020-07-10T10:57:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://h4dla3.github.io/post/</loc>
+    <loc>https://example.com/tags/lfi/</loc>
     <lastmod>2020-07-10T10:57:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://h4dla3.github.io/about/</loc>
+    <loc>https://example.com/post/ctf_tips/</loc>
+    <lastmod>2020-07-10T10:57:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/php7/</loc>
+    <lastmod>2020-07-10T10:57:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/phpinfo/</loc>
+    <lastmod>2020-07-10T10:57:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/post/</loc>
+    <lastmod>2020-07-10T10:57:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2020-07-10T10:57:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/about/</loc>
     <lastmod>2020-07-08T11:47:06-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://h4dla3.github.io/</loc>
+    <loc>https://example.com/</loc>
     <lastmod>2020-07-08T11:47:06-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://h4dla3.github.io/categories/</loc>
+    <loc>https://example.com/categories/</loc>
   </url>
   
   <url>
-    <loc>https://h4dla3.github.io/post/eaglejump/</loc>
+    <loc>https://example.com/post/eaglejump/</loc>
   </url>
   
   <url>
-    <loc>https://h4dla3.github.io/post/phpsandbox/</loc>
-  </url>
-  
-  <url>
-    <loc>https://h4dla3.github.io/tags/</loc>
+    <loc>https://example.com/post/phpsandbox/</loc>
   </url>
   
 </urlset>
