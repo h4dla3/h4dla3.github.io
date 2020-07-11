@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>phpinfo on MtucX</title>
-    <link>https://example.com/tags/phpinfo/</link>
+    <link>https://h4dla3.github.io/tags/phpinfo/</link>
     <description>Recent content in phpinfo on MtucX</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 10 Jul 2020 10:57:03 -0400</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/phpinfo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://h4dla3.github.io/tags/phpinfo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>lfi</title>
-      <link>https://example.com/post/ctf_tips/</link>
+      <link>https://h4dla3.github.io/post/ctf_tips/</link>
       <pubDate>Fri, 10 Jul 2020 10:57:03 -0400</pubDate>
       
-      <guid>https://example.com/post/ctf_tips/</guid>
+      <guid>https://h4dla3.github.io/post/ctf_tips/</guid>
       <description>بسم الله الرحمن الرحيم
 السلام عليكم ورحمة الله تعالى و بركاته</description>
     </item>

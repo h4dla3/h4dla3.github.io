@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on MtucX</title>
-    <link>https://example.com/post/</link>
+    <link>https://h4dla3.github.io/post/</link>
     <description>Recent content in Posts on MtucX</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 10 Jul 2020 10:57:03 -0400</lastBuildDate>
     
-	<atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://h4dla3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>lfi</title>
-      <link>https://example.com/post/ctf_tips/</link>
+      <link>https://h4dla3.github.io/post/ctf_tips/</link>
       <pubDate>Fri, 10 Jul 2020 10:57:03 -0400</pubDate>
       
-      <guid>https://example.com/post/ctf_tips/</guid>
+      <guid>https://h4dla3.github.io/post/ctf_tips/</guid>
       <description>بسم الله الرحمن الرحيم
 السلام عليكم ورحمة الله تعالى و بركاته</description>
     </item>
     
     <item>
       <title>Eaglejump</title>
-      <link>https://example.com/post/eaglejump/</link>
+      <link>https://h4dla3.github.io/post/eaglejump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/post/eaglejump/</guid>
+      <guid>https://h4dla3.github.io/post/eaglejump/</guid>
       <description>اولا لم اكتب با للغة العربية اكثر من 7 سنوات سوف تجدون الكثير من الاخطاء ملاحظة هذا حل للتحدي وليس شرح لكن سوف اقوم بوضع روابط اطلعو عليها كما انني قمت بحل التحدي منذ مدة طويلة</description>
     </item>
     
     <item>
       <title>Phpsandbox</title>
-      <link>https://example.com/post/phpsandbox/</link>
+      <link>https://h4dla3.github.io/post/phpsandbox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/post/phpsandbox/</guid>
+      <guid>https://h4dla3.github.io/post/phpsandbox/</guid>
       <description>السلام عليكم ورحمة الله تعالى و بركاته</description>
     </item>
     
