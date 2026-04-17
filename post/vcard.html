@@ -1,119 +1,288 @@
-<style>
-.card-wrap{display:flex;justify-content:center;align-items:flex-start;padding:16px;background:#dff0fb}
-.card{width:100%;max-width:400px;border-radius:22px;overflow:hidden;border:0.5px solid #b8ddf5;background:#fff}
-.card-top{background:#1a8fe3;padding:28px 20px 22px;display:flex;flex-direction:column;align-items:center;gap:10px}
-.avatar{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,0.18);border:2px solid rgba(255,255,255,0.35);display:flex;align-items:center;justify-content:center}
-.name{color:#fff;font-size:18px;font-weight:500;margin:0;text-align:center}
-.role-pill{background:rgba(255,255,255,0.18);color:rgba(255,255,255,0.92);font-size:11px;padding:4px 14px;border-radius:20px;letter-spacing:0.4px}
-.contact-row{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:0.5px solid #eef4fb}
-.contact-icon{width:36px;height:36px;border-radius:10px;background:#e8f4fd;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.contact-label{font-size:10px;color:#7ab3d0;letter-spacing:0.4px;margin:0 0 1px}
-.contact-val{font-size:13px;color:#0c3d5a;font-weight:500;margin:0;word-break:break-all}
-.contact-val a{color:#0c3d5a;text-decoration:none}
-.section-label{font-size:10px;color:#7ab3d0;letter-spacing:0.5px;font-weight:500;padding:14px 16px 8px;margin:0}
-.social-list{padding:0 16px 16px;display:flex;flex-direction:column;gap:8px}
-.social-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:#f5fafd;text-decoration:none;border:0.5px solid #e0eff8}
-.s-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.s-name{font-size:13px;color:#0c3d5a;font-weight:500;flex:1}
-.s-handle{font-size:11px;color:#7ab3d0}
-.chev{flex-shrink:0}
-@media(max-width:360px){
-  .card-top{padding:22px 14px 18px}
-  .avatar{width:58px;height:58px}
-  .name{font-size:16px}
-  .contact-row{padding:10px 12px}
-  .social-list{padding:0 12px 12px}
-}
-</style>
-<div class="card-wrap">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>John Doe – Digital Creator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #dff0fb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px 16px 40px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #b8ddf5;
+    }
+
+    /* ── Header ── */
+    .card-top {
+      background: #1a8fe3;
+      padding: 36px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      border: 2.5px solid rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar svg { width: 40px; height: 40px; }
+
+    .card-name {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .role-pill {
+      background: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.95);
+      font-size: 13px;
+      padding: 5px 18px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Contact rows ── */
+    .contact-section { padding: 8px 0; }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid #eef4fb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .contact-row:last-child { border-bottom: none; }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      border-radius: 12px;
+      background: #e8f4fd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-icon svg { width: 18px; height: 18px; }
+
+    .contact-label {
+      font-size: 11px;
+      color: #7ab3d0;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+
+    .contact-val {
+      font-size: 15px;
+      color: #0c3d5a;
+      font-weight: 500;
+    }
+
+    /* ── Social ── */
+    .section-title {
+      font-size: 11px;
+      color: #7ab3d0;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      padding: 18px 20px 10px;
+      border-top: 1px solid #eef4fb;
+    }
+
+    .social-list {
+      padding: 0 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f5fafd;
+      border: 1px solid #e0eff8;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .s-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s-icon svg { width: 18px; height: 18px; }
+
+    .s-text { flex: 1; }
+
+    .s-name {
+      font-size: 15px;
+      color: #0c3d5a;
+      font-weight: 500;
+    }
+
+    .s-handle {
+      font-size: 12px;
+      color: #7ab3d0;
+      margin-top: 1px;
+    }
+
+    .s-arrow { color: #b0cfe0; font-size: 18px; }
+
+    .social-row:active { background: #e5f3fc; }
+    .contact-row:active { background: #f0f8fd; }
+  </style>
+</head>
+<body>
 <div class="card">
 
   <div class="card-top">
     <div class="avatar">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.95)"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.95)" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.95)"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.95)" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
     </div>
-    <p class="name">John Doe</p>
+    <div class="card-name">John Doe</div>
     <span class="role-pill">Digital Creator</span>
   </div>
 
-  <div class="contact-row">
-    <div class="contact-icon">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#1a8fe3" stroke-width="1.5"/></svg>
-    </div>
-    <div><p class="contact-label">PHONE</p><p class="contact-val"><a href="tel:+12345678900">+1 234 567 8900</a></p></div>
+  <div class="contact-section">
+    <a class="contact-row" href="tel:+12345678900">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#1a8fe3" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">PHONE</div>
+        <div class="contact-val">+1 234 567 8900</div>
+      </div>
+    </a>
+
+    <a class="contact-row" href="mailto:john@example.com">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#1a8fe3" stroke-width="1.6"/><polyline points="22,6 12,13 2,6" stroke="#1a8fe3" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">EMAIL</div>
+        <div class="contact-val">john@example.com</div>
+      </div>
+    </a>
+
+    <a class="contact-row" href="https://example.com" target="_blank">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a8fe3" stroke-width="1.6"/><line x1="2" y1="12" x2="22" y2="12" stroke="#1a8fe3" stroke-width="1.6"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#1a8fe3" stroke-width="1.6"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">WEBSITE</div>
+        <div class="contact-val">example.com</div>
+      </div>
+    </a>
   </div>
 
-  <div class="contact-row">
-    <div class="contact-icon">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#1a8fe3" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="#1a8fe3" stroke-width="1.5"/></svg>
-    </div>
-    <div><p class="contact-label">EMAIL</p><p class="contact-val"><a href="mailto:john@example.com">john@example.com</a></p></div>
-  </div>
-
-  <div class="contact-row" style="border-bottom:none">
-    <div class="contact-icon">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1a8fe3" stroke-width="1.5"/><line x1="2" y1="12" x2="22" y2="12" stroke="#1a8fe3" stroke-width="1.5"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#1a8fe3" stroke-width="1.5"/></svg>
-    </div>
-    <div><p class="contact-label">WEBSITE</p><p class="contact-val"><a href="https://example.com" target="_blank">example.com</a></p></div>
-  </div>
-
-  <p class="section-label">SOCIAL MEDIA</p>
+  <div class="section-title">SOCIAL MEDIA</div>
   <div class="social-list">
 
-    <a href="https://instagram.com/johndoe" target="_blank" class="social-row">
+    <a class="social-row" href="https://instagram.com/johndoe" target="_blank">
       <div class="s-icon" style="background:#fdf0f8">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#C13584" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#C13584" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.1" fill="#C13584"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#C13584" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="#C13584" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1.2" fill="#C13584"/></svg>
       </div>
-      <span class="s-name">Instagram</span>
-      <span class="s-handle">@johndoe</span>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="9,18 15,12 9,6" stroke="#b0cfe0" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="s-text">
+        <div class="s-name">Instagram</div>
+        <div class="s-handle">@johndoe</div>
+      </div>
+      <span class="s-arrow">›</span>
     </a>
 
-    <a href="https://tiktok.com/@johndoe" target="_blank" class="social-row">
+    <a class="social-row" href="https://tiktok.com/@johndoe" target="_blank">
       <div class="s-icon" style="background:#f2f2f2">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" stroke="#111" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <span class="s-name">TikTok</span>
-      <span class="s-handle">@johndoe</span>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="9,18 15,12 9,6" stroke="#b0cfe0" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="s-text">
+        <div class="s-name">TikTok</div>
+        <div class="s-handle">@johndoe</div>
+      </div>
+      <span class="s-arrow">›</span>
     </a>
 
-    <a href="https://facebook.com/johndoe" target="_blank" class="social-row">
+    <a class="social-row" href="https://facebook.com/johndoe" target="_blank">
       <div class="s-icon" style="background:#eef4ff">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#1877F2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#1877F2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <span class="s-name">Facebook</span>
-      <span class="s-handle">johndoe</span>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="9,18 15,12 9,6" stroke="#b0cfe0" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="s-text">
+        <div class="s-name">Facebook</div>
+        <div class="s-handle">johndoe</div>
+      </div>
+      <span class="s-arrow">›</span>
     </a>
 
-    <a href="https://twitter.com/johndoe" target="_blank" class="social-row">
+    <a class="social-row" href="https://twitter.com/johndoe" target="_blank">
       <div class="s-icon" style="background:#f2f8ff">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M2 4h6l4 5.5L16 4h6L13 12.5 22 20h-6l-4-5.5L8 20H2l9-7.5z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M2 4h6l4 5.5L16 4h6L13 12.5 22 20h-6l-4-5.5L8 20H2l9-7.5z" fill="#111"/></svg>
       </div>
-      <span class="s-name">X / Twitter</span>
-      <span class="s-handle">@johndoe</span>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="9,18 15,12 9,6" stroke="#b0cfe0" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="s-text">
+        <div class="s-name">X / Twitter</div>
+        <div class="s-handle">@johndoe</div>
+      </div>
+      <span class="s-arrow">›</span>
     </a>
 
-    <a href="https://linkedin.com/in/johndoe" target="_blank" class="social-row">
+    <a class="social-row" href="https://linkedin.com/in/johndoe" target="_blank">
       <div class="s-icon" style="background:#e8f3fc">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="#0077B5" stroke-width="1.6"/><path d="M7 10v7M7 7v.01M11 10v7m0-4a3 3 0 0 1 6 0v4" stroke="#0077B5" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="#0077B5" stroke-width="1.7"/><path d="M7 10v7M7 7v.01M11 10v7m0-4a3 3 0 0 1 6 0v4" stroke="#0077B5" stroke-width="1.7" stroke-linecap="round"/></svg>
       </div>
-      <span class="s-name">LinkedIn</span>
-      <span class="s-handle">johndoe</span>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="9,18 15,12 9,6" stroke="#b0cfe0" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="s-text">
+        <div class="s-name">LinkedIn</div>
+        <div class="s-handle">johndoe</div>
+      </div>
+      <span class="s-arrow">›</span>
     </a>
 
-    <a href="https://youtube.com/@johndoe" target="_blank" class="social-row">
+    <a class="social-row" href="https://youtube.com/@johndoe" target="_blank">
       <div class="s-icon" style="background:#fff2f2">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" stroke="#FF0000" stroke-width="1.6"/><polygon points="10,9 16,12 10,15" fill="#FF0000"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" stroke="#FF0000" stroke-width="1.7"/><polygon points="10,9 16,12 10,15" fill="#FF0000"/></svg>
       </div>
-      <span class="s-name">YouTube</span>
-      <span class="s-handle">@johndoe</span>
-      <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="9,18 15,12 9,6" stroke="#b0cfe0" stroke-width="2" stroke-linecap="round"/></svg>
+      <div class="s-text">
+        <div class="s-name">YouTube</div>
+        <div class="s-handle">@johndoe</div>
+      </div>
+      <span class="s-arrow">›</span>
     </a>
 
   </div>
 </div>
-</div>
+</body>
+</html>
