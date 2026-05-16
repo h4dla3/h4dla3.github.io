@@ -1,249 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>OraScoop Mars Algeria</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+<title>OraScoop Mars Algeria | Smart Home</title>
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #dff0fb;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 20px 16px 40px;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
-    .card {
-      width: 100%;
-      max-width: 480px;
-      background: #fff;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid #b8ddf5;
-    }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+  background: radial-gradient(circle at 20% 30%, #f0f2f5 0%, #e4e8ed 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+}
 
-    /* ── Header ── */
-    .card-top {
-      background: #1a8fe3;
-      padding: 36px 24px 28px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
+/* refined card with gray/yellow palette */
+.card {
+  width: 100%;
+  max-width: 500px;
+  background: #FFFFFF;
+  border-radius: 48px;
+  overflow: hidden;
+  box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-    .avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.18);
-      border: 2.5px solid rgba(255,255,255,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 55px -14px rgba(0, 0, 0, 0.3);
+}
 
-    .avatar svg { width: 40px; height: 40px; }
+/* HEADER — grey base with yellow accent */
+.card-top {
+  background: linear-gradient(145deg, #2C2F33 0%, #23272A 100%);
+  padding: 40px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  border-bottom: 5px solid #F5D742;
+}
 
-    .card-name {
-      color: #fff;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.3px;
-    }
+.card-top::before {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: rgba(245, 215, 66, 0.08);
+  border-radius: 50%;
+  top: -80px;
+  right: -70px;
+  z-index: 0;
+}
 
-    .role-pill {
-      background: rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.95);
-      font-size: 13px;
-      padding: 5px 18px;
-      border-radius: 30px;
-      letter-spacing: 0.3px;
-    }
+.card-top::after {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 50%;
+  bottom: -50px;
+  left: -50px;
+}
 
-    /* ── Contact rows ── */
-    .contact-section { padding: 8px 0; }
+.avatar {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: #F5D742;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
 
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 20px;
-      border-bottom: 1px solid #eef4fb;
-      text-decoration: none;
-      cursor: pointer;
-    }
+.avatar:hover {
+  transform: scale(1.02);
+  border-color: #F5D742;
+}
 
-    .contact-row:last-child { border-bottom: none; }
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    .contact-icon {
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      border-radius: 12px;
-      background: #e8f4fd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* fallback SVG (hidden when image loads) */
+.avatar .fallback-svg {
+  display: none;
+}
 
-    .contact-icon svg { width: 18px; height: 18px; }
+.card-name {
+  color: #FFFFFF;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-align: center;
+  background: linear-gradient(135deg, #FFFFFF 70%, #F5D742 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
 
-    .contact-label {
-      font-size: 11px;
-      color: #7ab3d0;
-      letter-spacing: 0.5px;
-      margin-bottom: 3px;
-    }
+.role-pill {
+  background: rgba(245, 215, 66, 0.2);
+  backdrop-filter: blur(8px);
+  color: #F5D742;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 20px;
+  border-radius: 60px;
+  border: 1px solid rgba(245, 215, 66, 0.4);
+  letter-spacing: 0.3px;
+}
 
-    .contact-val {
-      font-size: 15px;
-      color: #0c3d5a;
-      font-weight: 500;
-    }
+/* SECTION TITLE */
+.section-title {
+  font-size: 12px;
+  color: #7A7D84;
+  letter-spacing: 0.9px;
+  font-weight: 700;
+  padding: 24px 24px 10px 24px;
+  border-top: none;
+  margin-top: 4px;
+  text-transform: uppercase;
+  display: inline-block;
+}
 
-    /* ── Social ── */
-    .section-title {
-      font-size: 11px;
-      color: #7ab3d0;
-      letter-spacing: 0.6px;
-      font-weight: 600;
-      padding: 18px 20px 10px;
-      border-top: 1px solid #eef4fb;
-    }
+/* SOCIAL LIST refined */
+.social-list {
+  padding: 0 20px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-    .social-list {
-      padding: 0 16px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 18px;
+  border-radius: 28px;
+  background: #F9F9FC;
+  border: 1px solid #EAECF0;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  backdrop-filter: blur(2px);
+}
 
-    .social-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: #f5fafd;
-      border: 1px solid #e0eff8;
-      text-decoration: none;
-      cursor: pointer;
-    }
+.social-row:hover {
+  transform: translateY(-3px) scale(1.01);
+  background: #FFFFFF;
+  border-color: #F5D742;
+  box-shadow: 0 12px 22px -12px rgba(0, 0, 0, 0.12);
+}
 
-    .s-icon {
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.s-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+}
 
-    .s-icon svg { width: 18px; height: 18px; }
+.social-row:hover .s-icon {
+  transform: scale(1.06);
+  background: #FEF7E0;
+}
 
-    .s-text { flex: 1; }
+.s-icon svg {
+  width: 22px;
+  height: 22px;
+}
 
-    .s-name {
-      font-size: 15px;
-      color: #0c3d5a;
-      font-weight: 500;
-    }
+.s-text {
+  flex: 1;
+}
 
-    .s-handle {
-      font-size: 12px;
-      color: #7ab3d0;
-      margin-top: 1px;
-    }
+.s-name {
+  font-size: 16px;
+  color: #1F2937;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
 
-    .s-arrow { color: #b0cfe0; font-size: 18px; }
+.s-handle {
+  font-size: 12.5px;
+  color: #6B7280;
+  margin-top: 4px;
+  font-weight: 500;
+}
 
-    .social-row:active { background: #e5f3fc; }
-    .contact-row:active { background: #f0f8fd; }
-  </style>
+.s-arrow {
+  color: #C4B998;
+  font-size: 28px;
+  font-weight: 300;
+  transition: transform 0.2s ease, color 0.2s;
+}
+
+.social-row:hover .s-arrow {
+  transform: translateX(5px);
+  color: #F5D742;
+}
+
+/* CONTACT SECTION — grey/yellow elevation */
+.contact-section {
+  padding: 8px 0 20px 0;
+  margin-top: 4px;
+  border-top: 1px solid #EDF0F5;
+  background: #FFFFFF;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #F0F2F5;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.contact-row:hover {
+  background: #FFFDF5;
+  transform: translateX(6px);
+}
+
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 24px;
+  background: #F3F4F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid #EBEDF0;
+}
+
+.contact-row:hover .contact-icon {
+  background: #F5D74220;
+  border-color: #F5D742;
+  transform: scale(1.02);
+}
+
+.contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-label {
+  font-size: 11px;
+  color: #9CA3AF;
+  letter-spacing: 0.7px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-val {
+  font-size: 17px;
+  color: #1F2937;
+  font-weight: 620;
+  letter-spacing: -0.2px;
+}
+
+.contact-row:hover .contact-val {
+  color: #000000;
+}
+
+/* subtle micro-interactions */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.social-row, .contact-row {
+  animation: fadeSlide 0.35s ease backwards;
+}
+
+.social-row:nth-child(1) { animation-delay: 0.05s; }
+.social-row:nth-child(2) { animation-delay: 0.1s; }
+.social-row:nth-child(3) { animation-delay: 0.15s; }
+.contact-row:nth-child(1) { animation-delay: 0.2s; }
+.contact-row:nth-child(2) { animation-delay: 0.25s; }
+.contact-row:nth-child(3) { animation-delay: 0.3s; }
+
+/* spacing & adjust */
+@media (max-width: 480px) {
+  .card {
+    border-radius: 36px;
+  }
+  .card-name {
+    font-size: 24px;
+  }
+  .contact-val {
+    font-size: 15px;
+  }
+  .contact-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+  }
+  .social-row {
+    padding: 10px 14px;
+  }
+  .s-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* additional subtle yellow accent lines */
+.section-title::before {
+  content: "✦";
+  margin-right: 6px;
+  color: #F5D742;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* improve touch targets */
+a, .contact-row, .social-row {
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
-<div class="card">
 
+<div class="card">
   <div class="card-top">
     <div class="avatar">
-      <svg viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="8" r="4" fill="rgba(255,255,255,0.95)"/>
-        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(255,255,255,0.95)" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
+      <img src="c.jpeg" alt="OraScoop Mars Algeria avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="fallback-svg" style="display: none; align-items: center; justify-content: center; width: 100%; height: 100%; background: #2C2F33;">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 52px; height: 52px;">
+          <circle cx="16" cy="16" r="14" fill="#2C2F33" stroke="#F5D742" stroke-width="1.2"/>
+          <path d="M16 6 L22 11 L22 20 L16 25 L10 20 L10 11 L16 6Z" fill="#F5D742" fill-opacity="0.85" stroke="#FFFFFF" stroke-width="0.8"/>
+          <circle cx="16" cy="16" r="2.5" fill="#23272A" stroke="#FFFFFF" stroke-width="0.6"/>
+          <path d="M13 14 L14 13 M19 14 L18 13" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M15 19 L17 19" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
-    <div class="card-name">OraScoop Mars Algeria</div>
-    <span class="role-pill"></span>
+
+    <div class="card-name">
+      OraScoop Mars Algeria
+    </div>
+
+    <span class="role-pill">
+      ✦ Smart Home - Security - App Dev ✦
+    </span>
   </div>
 
-  
+  <div class="section-title">
+    Connectez-Vous Avec Nous
+  </div>
 
-  <div class="section-title">SOCIAL MEDIA</div>
   <div class="social-list">
-  
-  
+    <a class="social-row"
+       href="https://www.tiktok.com/@orascoop.mars.algeria/"
+       target="_blank"
+       rel="noopener noreferrer">
 
-    <a class="social-row" href="https://www.tiktok.com/@orascoop.mars.algeria/" target="_blank">
-      <div class="s-icon" style="background:#f2f2f2">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" stroke="#111" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="s-icon" style="background:#FFFFFF; border:1px solid #EAECF0;">
+        <!-- TikTok icon modern & refined -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 3C14.5 5 16 6.5 18 7V10C16.6 10 15.2 9.6 14 8.8V14.5C14 17.5 11.5 20 8.5 20C5.5 20 3 17.5 3 14.5C3 11.5 5.5 9 8.5 9C9 9 9.5 9.1 10 9.2V12.2C9.5 12 9 11.9 8.5 11.9C7.1 11.9 6 13 6 14.5C6 15.9 7.1 17 8.5 17C9.9 17 11 15.9 11 14.5V3H14Z" fill="#212529"/>
+        </svg>
       </div>
+
       <div class="s-text">
         <div class="s-name">TikTok</div>
         <div class="s-handle">@orascoop.mars.algeria</div>
       </div>
-      <span class="s-arrow">›</span>
+      <span class="s-arrow">→</span>
     </a>
 
-    <a class="social-row" href="https://www.facebook.com/ORASCOOP/" target="_blank">
-      <div class="s-icon" style="background:#eef4ff">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#1877F2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a class="social-row"
+       href="https://www.facebook.com/ORASCOOP/"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="s-icon" style="background:#FFFFFF; border:1px solid #EAECF0;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 8H16V4H13C10.8 4 9 5.8 9 8V11H6V15H9V20H13V15H16L17 11H13V8.5C13 8.2 13.2 8 13.5 8H14Z" fill="#1877F2"/>
+        </svg>
       </div>
+
       <div class="s-text">
         <div class="s-name">Facebook</div>
-        <div class="s-handle">ORASCOOP</div>
+        <div class="s-handle">Orascoop Mars Algeria</div>
       </div>
-      <span class="s-arrow">›</span>
+      <span class="s-arrow">→</span>
     </a>
 
+    <a class="social-row"
+       href="https://www.instagram.com/orascoopmarsalgeria"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="s-icon" style="background:#FFFFFF; border:1px solid #EAECF0;">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="#E4405F" stroke-width="1.4"/>
+          <circle cx="12" cy="12" r="3.8" stroke="#E4405F" stroke-width="1.3"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="#E4405F"/>
+        </svg>
+      </div>
+
+      <div class="s-text">
+        <div class="s-name">Instagram</div>
+        <div class="s-handle">@orascoopmarsalgeria</div>
+      </div>
+      <span class="s-arrow">→</span>
+    </a>
   </div>
-	
-	<div class="contact-section">
+
+  <div class="section-title">
+	Contact Direct
+  </div>
+
+  <div class="contact-section">
     <a class="contact-row" href="tel:+213560300473">
       <div class="contact-icon">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#1a8fe3" stroke-width="1.6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#F5D742" stroke-width="1.5" fill="none"/>
+          <path d="M14 11h.01M17 11h.01M11 11h.01" stroke="#F5D742" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        </svg>
       </div>
       <div>
         <div class="contact-label">PHONE 1</div>
-        <div class="contact-val">0560.300.473</div>
+        <div class="contact-val">0560 300 473</div>
       </div>
     </a>
 
     <a class="contact-row" href="tel:+213799708570">
       <div class="contact-icon">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#1a8fe3" stroke-width="1.6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#F5D742" stroke-width="1.5" fill="none"/>
+          <circle cx="12" cy="12" r="1.5" fill="#F5D742" stroke="none"/>
+        </svg>
       </div>
       <div>
         <div class="contact-label">PHONE 2</div>
-        <div class="contact-val">0799.708.570</div>
+        <div class="contact-val">0799 708 570</div>
       </div>
     </a>
 
     <a class="contact-row" href="tel:+213557625961">
       <div class="contact-icon">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#1a8fe3" stroke-width="1.6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.39 19a19.5 19.5 0 0 1-5-5A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 5 5l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="#F5D742" stroke-width="1.5" fill="none"/>
+          <path d="M9 12L12 9L15 12L12 15L9 12Z" fill="#F5D742" stroke="none"/>
+        </svg>
       </div>
       <div>
         <div class="contact-label">PHONE 3</div>
-        <div class="contact-val">0557.625.961</div>
+        <div class="contact-val">0557 625 961</div>
       </div>
     </a>
   </div>
 
+  <!-- subtle footer note with smart home vibe -->
+  <div style="padding: 12px 24px 28px 24px; text-align: center; border-top: 1px solid #F0F2F5; background: #FFFFFF;">
+    <div style="font-size: 10px; color: #9CA3AF; letter-spacing: 0.3px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+      <span style="display: inline-block; width: 4px; height: 4px; background: #F5D742; border-radius: 50%;"></span>
+      Smart home solutions • Made with innovation 
+      <span style="display: inline-block; width: 4px; height: 4px; background: #F5D742; border-radius: 50%;"></span>
+    </div>
+  </div>
 </div>
+
+<script>
+  // Ensure fallback shows if image fails to load
+  (function() {
+    const avatarImg = document.querySelector('.avatar img');
+    const fallbackDiv = document.querySelector('.avatar .fallback-svg');
+    if (avatarImg && fallbackDiv) {
+      avatarImg.onerror = function() {
+        avatarImg.style.display = 'none';
+        if (fallbackDiv) {
+          fallbackDiv.style.display = 'flex';
+        }
+      };
+      // If image loads successfully, hide fallback just in case
+      avatarImg.onload = function() {
+        fallbackDiv.style.display = 'none';
+        avatarImg.style.display = 'block';
+      };
+    }
+  })();
+</script>
 </body>
 </html>
